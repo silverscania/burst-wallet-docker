@@ -1,10 +1,15 @@
-## Build from this directory ##
-
-$ docker build docker/ -t burst-wallet
+## Build ##
+$ cd docker
+$ docker build . -t burst-wallet
 
 
 ## Run from this diretocry ##
-$ docker run -p 8123:8123 -p 8125:8125 -v "$(pwd)"/burst_db:/db -d
-Forward port 8123
+Don't run from the docker/ directory because it saves the database here
+so when you try to build the image again docker will copy the whole database
+to make it available to the builder.
+
+$ docker run -p 8123:8123 -p 8125:8125 -v "$(pwd)"/burst_db:/db -d burst-wallet
+
+Then forward port 8123
 
 
