@@ -1,0 +1,10 @@
+## Build from this directory ##
+
+$ docker build docker/ -t burst-wallet
+
+
+## Run from this diretocry ##
+$ docker run -p 8123:8123 -p 8125:8125 -v "$(pwd)"/burst_db:/db -d
+Forward port 8123
+
+
