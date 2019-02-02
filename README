@@ -8,7 +8,7 @@ Don't run from the docker/ directory because it saves the database here
 so when you try to build the image again docker will copy the whole database
 to make it available to the builder.
 
-$ docker run -p 8123:8123 -p 8125:8125 -v "$(pwd)"/burst_db:/db -d --restart unless-stopped burst-wallet
+$ docker run -p 8123:8123 -p 8125:8125 -v "$(pwd)"/burst_db:/db -d --restart unless-stopped --log-opt max-size=10m --log-opt max-file=5 --name burst-wallet burst-wallet
 
 Then forward port 8123
 
